@@ -1,5 +1,5 @@
 document.getElementById("helloBtn").addEventListener("click", async () => {
-  const response = await fetch("/api/hello");
+  const response = await fetch("/game/start");
   const text = await response.text();
   document.getElementById("result").textContent = text;
 });
