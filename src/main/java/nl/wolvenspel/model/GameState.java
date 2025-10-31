@@ -2,8 +2,9 @@ package nl.wolvenspel.model;
 
 public enum GameState {
     LOBBY,
-    NIGHT,
-    DAY,
-    VOTING,
-    ENDED
+    OPSTART,
+    NACHT,
+    DAG,
+    STEM_RONDE,
+    EINDE
 }
