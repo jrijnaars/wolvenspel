@@ -18,20 +18,27 @@ async function updateStartButtonVisibility() {
   try {
     const response = await fetch("/game/state");
     const gameState = await response.text();
-    console.log("GameState:", gameState); // Log de GameState
+    console.log("GameState:", gameState); // Log the GameState
 
     const startButton = document.getElementById("startGameBtn");
+    const registerButton = document.getElementById("registerBtn");
+    const nameInput = document.getElementById("nameInput");
+
     if (gameState === "LOBBY") {
+      // Show the "Start Game" button, "Schrijf in" button, and input field
       startButton.style.display = "block";
+      registerButton.style.display = "block";
+      nameInput.style.display = "block";
     } else {
+      // Hide the "Start Game" button, "Schrijf in" button, and input field
       startButton.style.display = "none";
+      registerButton.style.display = "none";
+      nameInput.style.display = "none";
     }
   } catch (error) {
     console.error("Error fetching game state:", error);
   }
 }
-
-
 
 // Event listener for the "Start game" button
 document.getElementById("startGameBtn").addEventListener("click", async () => {
@@ -39,45 +46,21 @@ document.getElementById("startGameBtn").addEventListener("click", async () => {
   const response = await fetch("/game/start");
 
   // Retrieve the response text from the server
-  const text = await response.text();
-
   // Display the server's response in the result paragraph
-  document.getElementById("result").textContent = text;
+  document.getElementById("result").textContent = await response.text();
 
   // Update the visibility of the start button based on the new game state
   updateStartButtonVisibility();
 });
 
 // Event listener for the "Register" button
-document.getElementById("registerBtn").addEventListener("click", async () => {
-  // Get the value entered in the name input field
-  const nameInput = document.getElementById("nameInput").value;
+document.getElementById("registerBtn").addEventListener("click", registerPlayer);
 
-  // If no name is entered, show an alert and stop further execution
-  if (!nameInput) {
-    alert("Please enter a name.");
-    return;
+// Event listener for the "Enter" key in the input field
+document.getElementById("nameInput").addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    registerPlayer();
   }
-
-  // Create a player object with the entered name
-  const player = { name: nameInput };
-
-  // Send a POST request to the server to register the player
-  const response = await fetch("/game/addPlayer", {
-    method: "POST", // Specify the HTTP method as POST
-    headers: {
-      "Content-Type": "application/json", // Indicate that the request body is JSON
-    },
-    body: JSON.stringify(player), // Convert the player object to a JSON string
-  });
-
-  // Retrieve the response text from the server
-  const text = await response.text();
-
-  // Display the server's response in the result paragraph
-  document.getElementById("result").textContent = text;
-
-  updatePlayerList();
 });
 
 async function updatePlayerList() {
@@ -95,5 +78,38 @@ async function updatePlayerList() {
     });
   } catch (error) {
     console.error("Error fetching player list:", error);
+  }
+}
+
+// Function to handle player registration
+async function registerPlayer() {
+  const nameInputField = document.getElementById("nameInput");
+  const nameInput = nameInputField.value;
+
+  if (!nameInput) {
+    alert("Please enter a name.");
+    return;
+  }
+
+  const player = { name: nameInput };
+
+  try {
+    const response = await fetch("/game/addPlayer", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(player),
+    });
+
+    document.getElementById("result").textContent = await response.text();
+
+    // Update the player list
+    updatePlayerList();
+
+    // Clear the input field
+    nameInputField.value = "";
+  } catch (error) {
+    console.error("Error registering player:", error);
   }
 }
