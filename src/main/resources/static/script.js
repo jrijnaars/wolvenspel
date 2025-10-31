@@ -1,6 +1,9 @@
 // Call the function when the page loads
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded");
+  // update the game state display initially
+  updateGameStateDisplay();
+  setInterval(updateGameStateDisplay, 1000); // Optional: Update every second
 
   // Define the startButton variable
   const startButton = document.getElementById("startGameBtn");
@@ -62,6 +65,19 @@ document.getElementById("nameInput").addEventListener("keydown", (event) => {
     registerPlayer();
   }
 });
+
+async function updateGameStateDisplay() {
+  try {
+    const response = await fetch("/game/state");
+    const gameState = await response.text();
+
+    // Update the game state display
+    const gameStateDisplay = document.getElementById("gameStateDisplay");
+    gameStateDisplay.textContent = `Spel fase: ${gameState}`;
+  } catch (error) {
+    console.error("Error fetching game state:", error);
+  }
+}
 
 async function updatePlayerList() {
   try {

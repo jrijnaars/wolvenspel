@@ -8,11 +8,14 @@
 </head>
 <body>
 <h1>Welkom bij het Wolvenspel</h1>
-<div>
-    <button id="startGameBtn" style="display: none;">Start Game</button>
-    <button id="registerBtn">Schrijf in</button>
+<div id="gameStateDisplay"></div>
+<div class="form-container">
+    <div class="button-container">
+        <button id="startGameBtn" style="display: none;">Start Game</button>
+        <button id="registerBtn">Schrijf in</button>
+    </div>
+    <input type="text" id="nameInput" placeholder="Jouw naam">
 </div>
-<input type="text" id="nameInput" placeholder="Jouw naam">
 <p id="result"></p>
 <ul id="playerList"></ul>
 <script src="script.js"></script>
