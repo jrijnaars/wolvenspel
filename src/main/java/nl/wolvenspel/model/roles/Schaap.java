@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class Schaap extends Role{
 
     public Schaap() {
-        this.roleName = "Schaap";
+        this.name = "Schaap";
         this.team = Team.SCHAPEN;
         this.hasNightAction = false;
     }

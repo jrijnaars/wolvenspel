@@ -1,7 +1,6 @@
 package nl.wolvenspel.model.roles;
 
 import nl.wolvenspel.model.Team;
-import nl.wolvenspel.model.roles.Role;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -10,7 +9,7 @@ public class Herder extends Role {
     boolean canSendAway;
 
     public Herder() {
-        this.roleName = "Herder";
+        this.name = "Herder";
         this.team = Team.SCHAPEN;
         this.hasNightAction = true;
     }

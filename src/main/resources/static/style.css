@@ -73,6 +73,7 @@ input {
   color: #333;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 #gameStateDisplay {
   position: absolute;
   top: 10px;
@@ -82,5 +83,15 @@ input {
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.player-tile {
+  background-color: #e8f5e9;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1em;
+  color: #333;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
