@@ -7,6 +7,41 @@
       <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="corporate-financing-stage" />
+      <option name="name" value="Rabobank Corporate Financing Stage Repository" />
+      <option name="url" value="https://nexus3.rabobank.nl/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="private-financing-stage" />
+      <option name="name" value="Rabo: Private Financing Stage" />
+      <option name="url" value="https://nexus3.rabobank.nl/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="private-financing-release" />
+      <option name="name" value="Rabo: Private Financing Release" />
+      <option name="url" value="https://nexus3.rabobank.nl/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="corporate" />
+      <option name="name" value="Rabobank Maven Corporate Repository" />
+      <option name="url" value="https://nexus3.rabobank.nl/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central" />
+      <option name="url" value="https://nexus3.rabobank.nl/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="corporate-financing-releases" />
+      <option name="name" value="Rabobank Corporate Financing Release Repository" />
+      <option name="url" value="https://nexus3.rabobank.nl/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="private-financing-snapshot" />
+      <option name="name" value="Rabo: Private Financing Snapshots" />
+      <option name="url" value="https://nexus3.rabobank.nl/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Maven Central repository" />
       <option name="url" value="https://repo1.maven.org/maven2" />
@@ -15,6 +50,11 @@
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="corporate-financing-snapshots" />
+      <option name="name" value="Rabobank Corporate Financing Snapshot Repository" />
+      <option name="url" value="https://nexus3.rabobank.nl/repository/maven-public/" />
     </remote-repository>
   </component>
 </project>

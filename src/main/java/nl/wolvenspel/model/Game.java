@@ -15,7 +15,7 @@ import java.util.List;
 @Component
 public class Game {
 
-    List<Player> players;
+    List<Player> players = new ArrayList<>();
     int round;
     GameState state;
 
